@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Interview</string>
+    <string name="signupdetails">Developed by Aadhya Solutions</string>
+    <string name="mobile">Mobile Number</string>
+    <string name="sendotp">Send OTP</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">Done</string>
+    <!--for screen 1-->
+    <string name="jobseeker">JOB SEEKER</string>
+    <string name="line1">FINE TUNE YOUR SKILLS</string>
+    <string name="line2">with mock interviews with</string>
+    <string name="line3">real-time experts</string>
+    <string name="line4">* NEW FEATURE *</string>
+    <string name="line5">You can select an interviewer</string>
+    <!--for screen 2-->
+    <string name="lineA">MEET WITH INDUSTRY EXPERTS</string>
+    <string name="lineB">and get detailed assessments</string>
+    <!--for screen 3-->
+    <string name="linea">MENTOR YOUNG TALENT</string>
+    <string name="lineb">to become industry leaders</string>
+    <!--screen 4-->
+    <string name="linec">EARN MORE</string>
+    <string name="lined">while you share expertise</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+</resources>
