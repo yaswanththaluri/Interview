@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,7 +45,7 @@ public class SplashScreen extends AppCompatActivity {
                     }
                     else
                     {
-                        Intent intent2 = new Intent(getApplicationContext(),MainActivity.class);
+                        Intent intent2 = new Intent(getApplicationContext(),Dashboard.class);
                         startActivity(intent2);
                     }
 
