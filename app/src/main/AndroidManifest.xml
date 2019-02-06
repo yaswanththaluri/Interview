@@ -30,11 +30,17 @@
             android:theme="@style/Auth" />
         <activity
             android:name=".Profile"
-            android:label="User Profile"
-            />
-        <activity android:name=".Dashboard"
-            android:label="Dashboard"
-            ></activity>
+            android:label="User Profile" />
+        <activity
+            android:name=".Dashboard"
+            android:label="Dashboard" />
+        <activity android:name=".ApplyInterview"
+            android:label="Apply Interview"/>
+        <activity android:name=".PendingInterview"
+            android:label="Pending Interviews"/>
+        <activity
+            android:name=".CompletedInterview"
+            android:label="Completed Interviews" />
     </application>
 
 </manifest>

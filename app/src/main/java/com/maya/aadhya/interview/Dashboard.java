@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -36,14 +38,49 @@ public class Dashboard extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
+        TextView name = findViewById(R.id.greetname);
+        name.setText("Welcome, "+user.getDisplayName()+" !");
+
         mNavigationView = findViewById(R.id.navigation);
         View headerView = mNavigationView.getHeaderView(0);
 
-        TextView t = headerView.findViewById(R.id.nameNav);
-        t.setText(user.getDisplayName());
+        try {
+            TextView t = headerView.findViewById(R.id.nameNav);
+            t.setText(user.getDisplayName());
 
-        ImageView v = headerView.findViewById(R.id.navImg);
-        Glide.with(this).applyDefaultRequestOptions(RequestOptions.circleCropTransform()).load(user.getPhotoUrl()).into(v);
+            ImageView v = headerView.findViewById(R.id.navImg);
+            Glide.with(this).applyDefaultRequestOptions(RequestOptions.circleCropTransform()).load(user.getPhotoUrl()).into(v);
+        }catch (Exception e)
+        {
+            Toast.makeText(Dashboard.this, "Please Fill the Profile", Toast.LENGTH_SHORT).show();
+        }
+
+        ImageView v = findViewById(R.id.applyint);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Dashboard.this, ApplyInterview.class);
+                startActivity(i);
+            }
+        });
+
+        ImageView v2 = findViewById(R.id.applied);
+        v2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i2 = new Intent(Dashboard.this, PendingInterview.class);
+                startActivity(i2);
+            }
+        });
+
+        ImageView v3 = findViewById(R.id.completed);
+        v3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i3 = new Intent(Dashboard.this, CompletedInterview.class);
+                startActivity(i3);
+            }
+        });
 
 
 
@@ -53,24 +90,40 @@ public class Dashboard extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_set:
-                        mTextView.setText("Item 1 selected");
-                        getSupportActionBar().setTitle("Item 1");
+                        Intent i4 = new Intent(Dashboard.this, ApplyInterview.class);
+                        startActivity(i4);
                         break;
                     case R.id.nav_applied:
-                        mTextView.setText("Item 2 selected");
-                        getSupportActionBar().setTitle("Item 2");
+                        Intent i2 = new Intent(Dashboard.this, PendingInterview.class);
+                        startActivity(i2);
                         break;
                     case R.id.nav_completed:
                         mTextView.setText("Item 3 selected");
                         getSupportActionBar().setTitle("Item 3");
                         break;
 
-                    case R.id.nav_profile:
-                        Intent i = new Intent(Dashboard.this, Profile.class);
-                        startActivity(i);
+                    case R.id.onlinetrainings:
+
                         break;
+
+                    case R.id.nav_profile:
+                        Intent i3 = new Intent(Dashboard.this, CompletedInterview.class);
+                        startActivity(i3);
+                        break;
+
+                    case R.id.aboutus:
+
+                        break;
+
+                    case R.id.contactus:
+                        
+                        break;
+
                     case R.id.nav_logout:
                         auth.signOut();
+                        Intent i5 = new Intent(Dashboard.this, Authentication.class);
+                        finish();
+                        startActivity(i5);
                         break;
                 }
                 //close the drawer
@@ -90,6 +143,10 @@ public class Dashboard extends AppCompatActivity {
         mActionBarDrawerToggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
 
     }
 
